@@ -2,18 +2,30 @@
 
     <div class="capped-width grid-center">
 
-        <div class="col-9 padded-05 center margin-b-1">
+        {% if page.intro-header == true %}
+
+        <div class="col-12 padded-05 center margin-b-1">
 
             <h2> {{ page.title }}</h2>
             {{ page.description_html }}
 
         </div>
 
-            {% for post in site.categories[page.category] limit:12 %}
+        {% endif %}
 
-                {% include post-loop-item-square.html %}
+        {% for post in site.categories[page.category] limit:12 %}
 
-            {% endfor %}
+                {% if page.post-style == "normal" %}
+
+                    {% include post-loop-item-square.html %}
+
+                {% else %}
+
+                    {% include post-loop-item-small.html %}
+
+                {% endif %}
+
+        {% endfor %}
 
     </div>
 
