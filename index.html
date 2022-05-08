@@ -8,14 +8,19 @@ seo:
   twitter_card:
   keywords:
   hide-from-google: false
+category: deserts
 ---
 
 <!------------------------ Image Banner  ------------------------>
-<section class="bg-image padded grid bg-overlay bg-overlay-gradient tall-90">
+<section class="bg-image bg-header padded grid tall-90">
 
-    <div class="col-12-middle center text-light">
-        <h2> Welcome to your new favourite blog </h2>
-        <p class="emphasis"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa rem unde excepturi quasi vitae debitis quas perspiciatis, autem nesciunt, ex sapiente vero quo adipisci est. Quam eaque rem esse quis? </p>
+    <div class="bg-overlay grid col-12-middle">
+        <div class="index-banner grid col-12-middle">
+            <div class="col-12-middle center text-light">
+                <h2> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit illum pariatur eius, officia sed temporibus ullam architecto beatae dolore nostrum officiis, possimus, excepturi harum odio corrupti exercitationem assumenda expedita quae. </h2>
+                <p class="emphasis"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam non ipsum eum soluta, explicabo, doloremque obcaecati ab, quibusdam quaerat sit impedit. Odio, rem velit necessitatibus neque quo animi cum sint. </p>
+            </div>
+         </div>
     </div>
 
 </section>
@@ -54,5 +59,22 @@ seo:
     </div>
 
 </section>
+
+
+<section class="padded">
+
+    <h1> Home Page </h1>
+
+    {% assign relevant-recipes = site.recipes | where_exp:"recipe", "recipe.categories contains page.category" %}
+
+    {% for recipe in relevant-recipes %}
+
+    <a href="{{recipe.url}}"> {{recipe.title}} </a>
+
+    {% endfor %}
+
+</section>
+
+
 
 
